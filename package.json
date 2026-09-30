@@ -1,0 +1,39 @@
+{
+  "name": "cvsu-events-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "backup:version": "node scripts/backup-version.mjs",
+    "seed:demo": "node scripts/seed-demo.mjs",
+    "migrate:mongo": "node scripts/migrate-json-to-mongo.mjs",
+    "test": "node --experimental-strip-types --test tests/smoke.test.mjs"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/uuid": "^10.0.0",
+    "archiver": "^8.0.0",
+    "bcryptjs": "^3.0.3",
+    "iron-session": "^8.0.4",
+    "mongodb": "^7.5.0",
+    "next": "16.2.10",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "resend": "^6.18.1",
+    "uuid": "^14.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/archiver": "^8.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

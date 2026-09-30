@@ -1,0 +1,21 @@
+CvSU Events Login URLs
+=======================
+
+Admin Login
+http://localhost:3000/login/admin
+For secretariat administrators. Uses email and password.
+
+Participant Login
+http://localhost:3000/login/participant
+For participants and students. Uses email and password.
+
+Speaker Login
+http://localhost:3000/login/speaker
+For registered speakers. Uses email-only login.
+
+Notes
+-----
+- Admin credentials must use the Admin Login URL.
+- Participant credentials must use the Participant Login URL.
+- Speaker credentials must use the Speaker Login URL.
+- Replace localhost:3000 with the deployed system domain when deployed.
