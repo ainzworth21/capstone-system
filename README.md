@@ -1,5 +1,4 @@
 # CvSU Campus Event Management System — Next.js
-**ITEC 106 – Web Systems and Technologies 2 | Final Project**
 Cavite State University – Don Severino delas Alas Campus
 
 ---
