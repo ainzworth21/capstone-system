@@ -5,10 +5,17 @@
 import assert from "node:assert/strict";
 
 const BASE = process.argv[2] || "http://localhost:3000";
+const adminEmail = process.env.TEST_ADMIN_EMAIL;
+const adminPassword = process.env.TEST_ADMIN_PASSWORD;
 const stamp = Date.now();
 const inviteEmail = `invite.spk.${stamp}@test.cvsu.local`;
 const changedEmail = `changed.spk.${stamp}@test.cvsu.local`;
 const thirdEmail = `blocked.spk.${stamp}@test.cvsu.local`;
+
+if (!adminEmail || !adminPassword) {
+  console.error("Set TEST_ADMIN_EMAIL and TEST_ADMIN_PASSWORD before running this live test.");
+  process.exit(1);
+}
 
 /** Simple cookie jar for Set-Cookie / Cookie headers */
 function makeClient() {
@@ -86,8 +93,8 @@ async function main() {
     const res = await admin.fetch("/api/auth/login", {
       method: "POST",
       body: JSON.stringify({
-        email: "admin@cvsu.edu.ph",
-        password: "Admin@1234",
+        email: adminEmail,
+        password: adminPassword,
       }),
     });
     assert.equal(res.status, 200, `login status ${res.status}: ${JSON.stringify(res.data)}`);

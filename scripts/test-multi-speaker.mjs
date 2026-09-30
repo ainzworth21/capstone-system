@@ -10,6 +10,13 @@ import { fileURLToPath } from "node:url";
 const BASE = process.env.TEST_BASE || "http://localhost:3000";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const dataDir = path.join(root, "..", "data");
+const adminEmail = process.env.TEST_ADMIN_EMAIL;
+const adminPassword = process.env.TEST_ADMIN_PASSWORD;
+
+if (!adminEmail || !adminPassword) {
+  console.error("Set TEST_ADMIN_EMAIL and TEST_ADMIN_PASSWORD before running this live test.");
+  process.exit(1);
+}
 
 function cookieJar() {
   let jar = "";
@@ -56,8 +63,8 @@ async function main() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        email: "admin@cvsu.edu.ph",
-        password: "Admin@1234",
+        email: adminEmail,
+        password: adminPassword,
       }),
     });
     jar.store(res);
